@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alan Kvindesland</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f9f9f9;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #2c5f8a;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-family: 'Arial', sans-serif;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 4rem;
+    }
+
+    #hero .label {
+      font-size: 0.85rem;
+      font-family: 'Arial', sans-serif;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: normal;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    /* Posts */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .post-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .post-item:hover { color: var(--muted); }
+
+    .post-title {
+      font-size: 1rem;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .contact-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1.6rem;
+      transition: color 0.2s;
+    }
+
+    .contact-links a:hover {
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      nav ul { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">AK</span>
+    <ul>
+      <li><a href="#about">Om</a></li>
+      <li><a href="#posts">Innlegg</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <img src="images/profilbilde.JPG" alt="Alan Kvindesland" />
+    <h1>Alan<br>Kvindesland</h1>
+    <p>"I dont do if buts or maybes, I do absolutes" - James Redmond</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>Om</h2>
+    <div class="about-text">
+      <p>Jeg jobber som remote ingeniør i SLB, liker å løpe, brygge og seile.</p>
+      <p>Oskar Westerlin fortalte meg at jeg må lære meg å vibe-kode.</p>
+    </div>
+  </section>
+
+  <!-- Posts -->
+  <section id="posts">
+    <h2>Innlegg</h2>
+    <div class="post-list">
+      <a href="posts/beijing.html" class="post-item">
+        <span class="post-title">Beijing</span>
+        <span class="post-meta">Kina</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <div class="contact-links">
+      <a href="mailto:alan.kvindesland@proton.me" title="Email" style="display:flex;align-items:center;gap:0.5rem;font-size:0.95rem;font-family:'Arial',sans-serif;"><i class="fas fa-envelope" style="font-size:1.6rem;"></i> alan.kvindesland@proton.me</a>
+      <a href="https://www.linkedin.com/in/alan-kvindesland/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.strava.com/athletes/53831705" target="_blank" title="Strava"><i class="fab fa-strava"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Alan Kvindesland. Alle rettigheter forbeholdt.
+  </footer>
+
+</body>
+</html>

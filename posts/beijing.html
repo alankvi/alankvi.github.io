@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beijing — Alan Kvindesland</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f9f9f9;
+      --text: #1a1a1a;
+      --muted: #888;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-family: 'Arial', sans-serif;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin: 2rem 0;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">&larr; Tilbake</a>
+  </nav>
+
+  <article>
+    <p class="post-meta">Kina</p>
+    <h1>Beijing</h1>
+
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/YNlP9f0bpbo" allowfullscreen></iframe>
+    </div>
+  </article>
+
+  <footer>&copy; 2026 Alan Kvindesland. Alle rettigheter forbeholdt.</footer>
+
+</body>
+</html>
