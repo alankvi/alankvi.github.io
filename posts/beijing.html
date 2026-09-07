@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beijing — Alan Kvindesland</title>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,11 +24,28 @@
       --border: #e0e0e0;
     }
 
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14161a;
+        --text: #e8e8e8;
+        --muted: #999;
+        --border: #2a2d33;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #14161a;
+      --text: #e8e8e8;
+      --muted: #999;
+      --border: #2a2d33;
+    }
+
     body {
       font-family: 'Georgia', serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      transition: background-color 0.2s, color 0.2s;
     }
 
     nav {
@@ -29,6 +56,9 @@
       border-bottom: 1px solid var(--border);
       padding: 1rem 2rem;
       z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     nav a {
@@ -40,6 +70,19 @@
     }
 
     nav a:hover { color: var(--text); }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--muted);
+      padding: 0;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .theme-toggle:hover { color: var(--text); }
 
     article {
       max-width: 680px;
@@ -93,6 +136,7 @@
 
   <nav>
     <a href="../index.html">&larr; Tilbake</a>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Bytt fargetema">🌙</button>
   </nav>
 
   <article>
@@ -105,6 +149,32 @@
   </article>
 
   <footer>&copy; 2026 Alan Kvindesland. Alle rettigheter forbeholdt.</footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+
+      function isDark() {
+        var attr = document.documentElement.getAttribute('data-theme');
+        if (attr) return attr === 'dark';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+
+      function updateIcon() {
+        btn.textContent = isDark() ? '☀' : '🌙';
+      }
+
+      updateIcon();
+
+      btn.addEventListener('click', function () {
+        var next = isDark() ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        updateIcon();
+      });
+    })();
+  </script>
 
 </body>
 </html>
